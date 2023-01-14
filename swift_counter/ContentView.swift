@@ -1,21 +1,26 @@
-//
-//  ContentView.swift
-//  swift_counter
-//
-//  Created by Fernando Bosco on 14/01/23.
-//
-
 import SwiftUI
 
 struct ContentView: View {
+    @State private var count = 0
+
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            Text("Count: \(count)")
+                    .font(.largeTitle)
+            HStack {
+                Button(action: {
+                    self.count -= 1
+                }) {
+                    Text("decrease")
+                }.padding()
+
+                Button(action: {
+                    self.count += 1
+                }) {
+                    Text("increase")
+                }.padding()
+            }
         }
-        .padding()
     }
 }
 
